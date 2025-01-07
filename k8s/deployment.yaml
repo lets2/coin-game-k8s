@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: app-node-deployment
+    namespace: dev-ns
+    labels:
+        app: app-node
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            app: app-node
+    template:
+        metadata:
+            labels:
+                app: app-node
+        spec:
+            containers:
+                - name: app-node
+                  ## imagem do registry DockerHub
+                  image: lets2/app-node:1.0.0
+                  ## para usar a imagem local obtida do load minikube
+                  # image: my-img-app-node:1.0.1
+                  ports:
+                      - containerPort: 3000
+                  resources:
+                      requests:
+                          memory: "64Mi"
+                          cpu: "100m"
+                      limits:
+                          memory: "128Mi"
+                          cpu: "300m"
