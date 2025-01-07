@@ -18,7 +18,8 @@ spec:
             containers:
                 - name: app-node
                   ## imagem do registry DockerHub
-                  image: lets2/app-node:1.0.0
+                  # image: lets2/app-node:2.0.0
+                  image: lets2/app-node:latest
                   ## para usar a imagem local obtida do load minikube
                   # image: my-img-app-node:1.0.1
                   ports:
